@@ -1,0 +1,36 @@
+﻿@model SpecRequestCore.Models.RoleAdminViewModels.EditRoleViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="bg-primary text-white"><h4>Members</h4></div>
+        @if (Model.Members.Count() == 0)
+        {
+            <p>No Members</p>
+        }
+        else
+        {
+            <ul>
+                @foreach (var user in Model.Members)
+                {
+                    <li>@user.Email</li>
+                }
+            </ul>
+        }
+    </div>
+    <div class="col-md-6">
+        <div class="bg-primary text-white"><h4>Non-Members</h4></div>
+        @if (Model.NonMembers.Count() == 0)
+        {
+            <p>No Members</p>
+        }
+        else
+        {
+            <ul>
+            @foreach (var user in Model.NonMembers)
+             {
+                 <li>@user.Email</li>
+             }
+            </ul>
+        }
+    </div>
+</div>

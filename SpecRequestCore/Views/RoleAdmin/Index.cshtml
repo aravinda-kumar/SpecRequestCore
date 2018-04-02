@@ -1,0 +1,8 @@
+﻿@model IEnumerable<IdentityRole>
+
+<ul>
+    @foreach (var role in Model)
+    {
+        <li><a asp-action="Edit" asp-route-id="@role.Id">@role.Name</a></li>
+    }
+</ul>
