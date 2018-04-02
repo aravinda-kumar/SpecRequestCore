@@ -25,9 +25,12 @@ namespace SpecRequestCore.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
+        private const string DefaultUserRole = "User";
+
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger)
         {
@@ -225,6 +228,11 @@ namespace SpecRequestCore.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    var roleResult = await _userManager.AddToRoleAsync(user, DefaultUserRole);
+
+                    if(roleResult.Succeeded)
+                        _logger.LogInformation("Added user to default role Users.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
