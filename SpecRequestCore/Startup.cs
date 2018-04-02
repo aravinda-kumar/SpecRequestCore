@@ -65,6 +65,7 @@ namespace SpecRequestCore
             });
 
            ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+           ApplicationDbContext.CreateDomainRoles(app.ApplicationServices, Configuration).Wait();
         }
     }
 }

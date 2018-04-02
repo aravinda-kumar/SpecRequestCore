@@ -55,6 +55,17 @@ namespace SpecRequestCore.Data
             }
         }
 
+        public static async Task CreateDomainRoles(IServiceProvider serviceProvider, IConfiguration configuration)
+        {
+            RoleManager<IdentityRole> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            string[] roles = new[] {"Admin", "Reviewer", "User"};
+            foreach (var role in roles)
+            {
+                if (await roleManager.FindByNameAsync(role) == null)
+                    await roleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
