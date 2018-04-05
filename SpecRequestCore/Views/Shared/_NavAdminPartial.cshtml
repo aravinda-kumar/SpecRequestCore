@@ -1,18 +1,1 @@
-﻿<nav class="navbar navbar-expand-md navbar-dark navbar-fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Spec Request Core</a>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" asp-controller="RoleAdmin" asp-action="Index">Manage Roles</a></li>
-            </ul>
-            @await Html.PartialAsync("_LoginPartial")
-        </div>
-</nav>
+﻿<li class="nav-item"><a class="nav-link" asp-controller="RoleAdmin" asp-action="Index"><i class="fa fa-users mr-2"></i>Manage Roles</a></li>

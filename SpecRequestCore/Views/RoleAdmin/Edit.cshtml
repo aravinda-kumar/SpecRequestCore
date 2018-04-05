@@ -10,7 +10,7 @@
         <div class="col">
             <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-header">
-                    Members
+                    Remove from @Model.Role.Name
                 </div>
                 <ul class="list-group list-group-flush">
                     @if (Model.Members.Count() == 0)
@@ -34,7 +34,7 @@
         <div class="col">
             <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-header">
-                    Non Members
+                    Add to @Model.Role.Name
                 </div>
                 <ul class="list-group list-group-flush">
                     @if (Model.NonMembers.Count() == 0)
