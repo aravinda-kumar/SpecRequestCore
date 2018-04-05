@@ -18,6 +18,8 @@ namespace SpecRequestCore.Data
         {
         }
 
+        public DbSet<Request> Requests { get; set; }
+        
         public static async Task CreateAdminAccount(IServiceProvider serviceProvider, IConfiguration configuration)
         {
             UserManager<ApplicationUser> userManager =
