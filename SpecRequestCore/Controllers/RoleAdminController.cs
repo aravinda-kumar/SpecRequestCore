@@ -52,5 +52,44 @@ namespace SpecRequestCore.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Edit(RoleModificationModel model)
+        {
+            IdentityResult result;
+
+            // Is form valid?
+            if(ModelState.IsValid)
+            {
+                // Add users to role (if any)
+                foreach(var userId in model.IdsToAdd ?? new string[] { })
+                {
+                    ApplicationUser user = await userManager.FindByIdAsync(userId);
+
+                    if(user != null)
+                    {
+                        result = await userManager.AddToRoleAsync(user, model.RoleName);
+                        if (!result.Succeeded)
+                            foreach (var error in result.Errors)
+                                ModelState.AddModelError("", error.Description);
+                    }
+                }
+                // Then remove users from role (if any)
+                foreach (var userId in model.IdsToRemove ?? new string[] { })
+                {
+                    ApplicationUser user = await userManager.FindByIdAsync(userId);
+
+                    if (user != null)
+                    {
+                        result = await userManager.RemoveFromRoleAsync(user, model.RoleName);
+                        if (!result.Succeeded)
+                            foreach (var error in result.Errors)
+                                ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+
+            // then bring them back to the index
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
