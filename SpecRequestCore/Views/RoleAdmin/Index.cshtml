@@ -1,8 +1,16 @@
 ﻿@model IEnumerable<IdentityRole>
 
-<ul>
-    @foreach (var role in Model)
-    {
-        <li><a asp-action="Edit" asp-route-id="@role.Id">@role.Name</a></li>
-    }
-</ul>
+<div class="row mt-5">
+    <div class="card mx-auto" style="width: 18rem;">
+        <div class="card-header">
+            Roles
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var role in Model)
+            {
+                <li class="list-group-item"><a asp-action="Edit" asp-route-id="@role.Id">@role.Name</a></li>
+            }
+        </ul>
+    </div>
+</div>
+

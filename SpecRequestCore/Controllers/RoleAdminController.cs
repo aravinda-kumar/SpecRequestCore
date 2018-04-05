@@ -35,7 +35,11 @@ namespace SpecRequestCore.Controllers
                 {
                     members.Add(user);
                 }
-                nonMembers.Add(user);
+                else
+                {
+                    nonMembers.Add(user);
+                }
+                
             }
 
             var model = new EditRoleViewModel

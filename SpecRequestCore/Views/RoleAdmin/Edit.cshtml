@@ -1,36 +1,46 @@
 ﻿@model SpecRequestCore.Models.RoleAdminViewModels.EditRoleViewModel
 
-<div class="row">
+
+<div class="row mt-5">
     <div class="col-md-6">
-        <div class="bg-primary text-white"><h4>Members</h4></div>
-        @if (Model.Members.Count() == 0)
-        {
-            <p>No Members</p>
-        }
-        else
-        {
-            <ul>
-                @foreach (var user in Model.Members)
+        <div class="card mx-auto" style="width: 18rem;">
+            <div class="card-header">
+                Members
+            </div>
+            <ul class="list-group list-group-flush">
+                @if (Model.Members.Count() == 0)
                 {
-                    <li>@user.Email</li>
+                    <li class="list-group-item">No Members</li>
+                }
+                else
+                {
+                    @foreach (var user in Model.Members)
+                    {
+                        <li class="list-group-item">@user.Email</li>
+                    }
                 }
             </ul>
-        }
+        </div>
     </div>
+
     <div class="col-md-6">
-        <div class="bg-primary text-white"><h4>Non-Members</h4></div>
-        @if (Model.NonMembers.Count() == 0)
-        {
-            <p>No Members</p>
-        }
-        else
-        {
-            <ul>
-            @foreach (var user in Model.NonMembers)
-             {
-                 <li>@user.Email</li>
-             }
+        <div class="card mx-auto" style="width: 18rem;">
+            <div class="card-header">
+                Non Members
+            </div>
+            <ul class="list-group list-group-flush">
+                @if (Model.NonMembers.Count() == 0)
+                {
+                    <li class="list-group-item">No Members</li>
+                }
+                else
+                {
+                    @foreach (var user in Model.NonMembers)
+                    {
+                        <li class="list-group-item">@user.Email</li>
+                    }
+                }
             </ul>
-        }
+        </div>
     </div>
 </div>
