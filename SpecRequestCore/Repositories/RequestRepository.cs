@@ -16,6 +16,16 @@ namespace SpecRequestCore.Repositories
             this.context = context;
         }
 
-        public IQueryable<Request> Requests => context.Requests; 
+        public IQueryable<Request> Requests => context.Requests;
+
+        public void SaveRequest(Request request)
+        {
+            if (request.Id == 0)
+            {
+                context.Requests.Add(request);
+            }
+
+            context.SaveChanges();
+        }
     }
 }

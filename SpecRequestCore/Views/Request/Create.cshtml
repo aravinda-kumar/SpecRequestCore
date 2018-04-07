@@ -1,0 +1,15 @@
+﻿@model SpecRequestCore.Models.RequestViewModels.CreateRequestViewModel
+
+<form asp-action="Create" method="post" class="mt-5">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="A short name for your request"/>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" row="3" placeholder="Description / Instructions for use..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

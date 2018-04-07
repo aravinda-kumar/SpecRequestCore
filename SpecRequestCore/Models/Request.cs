@@ -19,5 +19,10 @@ namespace SpecRequestCore.Models
 
         [Required]
         public DateTime RequestCreated { get; set; }
+
+        [Required]
+        public string UserId { get; set; }
+
+        public ApplicationUser User { get; set; }
     }
 }

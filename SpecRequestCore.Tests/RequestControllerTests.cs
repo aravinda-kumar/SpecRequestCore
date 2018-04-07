@@ -29,7 +29,7 @@ namespace SpecRequestCore.Tests
                     }
                 }).AsQueryable<Request>());
 
-            var controller = new RequestController(mock.Object);
+            var controller = new RequestController(mock.Object, null);
 
             var result = controller.Index().ViewData.Model as IEnumerable<Request>;
 

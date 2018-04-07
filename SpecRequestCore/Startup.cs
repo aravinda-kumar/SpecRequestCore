@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SpecRequestCore.Data;
 using SpecRequestCore.Models;
+using SpecRequestCore.Repositories;
 using SpecRequestCore.Services;
 
 namespace SpecRequestCore
@@ -35,6 +36,7 @@ namespace SpecRequestCore
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IRequestRepository, RequestRepository>();
 
             services.AddMvc();
         }
