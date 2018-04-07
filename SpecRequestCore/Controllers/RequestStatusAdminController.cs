@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SpecRequestCore.Data;
 using SpecRequestCore.Models;
@@ -10,6 +11,7 @@ using SpecRequestCore.Repositories;
 
 namespace SpecRequestCore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RequestStatusAdminController : Controller
     {
         private IRequestStatusRepository repository;
