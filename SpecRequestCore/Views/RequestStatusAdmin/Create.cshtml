@@ -1,0 +1,15 @@
+﻿@model SpecRequestCore.Models.RequestStatusViewModels.CreateRequestStatusViewModel
+
+
+<div class="row mt-5">
+    <div class="col-md-4 mx-auto">
+        <h4>Create New Status</h4>
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <input asp-for="Status" placeholder="Status" class="form-control"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

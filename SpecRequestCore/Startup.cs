@@ -37,6 +37,7 @@ namespace SpecRequestCore
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IRequestRepository, RequestRepository>();
+            services.AddTransient<IRequestStatusRepository, RequestStatusRepository>();
 
             services.AddMvc();
         }

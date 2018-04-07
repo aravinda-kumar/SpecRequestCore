@@ -19,6 +19,7 @@ namespace SpecRequestCore.Data
         }
 
         public DbSet<Request> Requests { get; set; }
+        public DbSet<RequestStatus> RequestStatuses { get; set; }
         
         public static async Task CreateAdminAccount(IServiceProvider serviceProvider, IConfiguration configuration)
         {
