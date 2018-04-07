@@ -23,7 +23,12 @@ namespace SpecRequestCore.Controllers
 
         }
 
-        public ViewResult Index() => View(repository.Requests.Include(r => r.User));
+        public async Task<IActionResult> Index()
+        {
+            var user = await userManager.GetUserAsync(HttpContext.User);
+
+            return View(repository.RequestsForUser(user.Id));
+        }
 
         public ViewResult Create() => View();
 

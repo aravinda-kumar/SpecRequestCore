@@ -9,6 +9,8 @@ namespace SpecRequestCore.Repositories
     public interface IRequestRepository
     {
         IQueryable<Request> Requests { get; }
+
+        IQueryable<Request> RequestsForUser(string userId);
         void SaveRequest(Request request);
     }
 }

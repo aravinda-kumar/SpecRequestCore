@@ -1,17 +1,26 @@
 ﻿@model IEnumerable<Request>
 
 <div class="row mt-5">
-    <table class="table table-bordered table-hover table-condensed">
-        <tr>
-            <th>Name</th>
-            <th>Submitted By</th>
-        </tr>
-        @foreach (var request in Model)
-        {
+    @if (Model.Count() == 0)
+    {
+        <span class="text-danger">You don't have any requests.</span>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover table-condensed">
             <tr>
-                <td>@request.Name</td>
-                <td>@request.User.Email</td>
+                <th>Name</th>
+                <th>Submitted By</th>
+                <th>Created At</th>
             </tr>
-        }
-    </table>
+            @foreach (var request in Model)
+            {
+                <tr>
+                    <td>@request.Name</td>
+                    <td>@request.User.Email</td>
+                    <td>@request.RequestCreated</td>
+                </tr>
+            }
+        </table>
+    }
 </div>
