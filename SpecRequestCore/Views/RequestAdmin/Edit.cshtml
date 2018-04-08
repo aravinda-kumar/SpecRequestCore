@@ -1,0 +1,33 @@
+﻿@model SpecRequestCore.Models.RequestAdminViewModels.EditRequestViewModel
+
+<div class="row mt-5">
+    <div class="col-md-10">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" placeholder="Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" placeholder="Description" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestStatusId"></label>
+                <select asp-for="RequestStatusId" asp-items="@(new SelectList(Model.Statuses, "Id", "Status"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewerId"></label>
+                <select asp-for="ReviewerId" asp-items="@(new SelectList(Model.Reviewers, "Id", "Email"))" class="form-control">
+                    @if (string.IsNullOrEmpty(Model.ReviewerId))
+                    {
+                        <option value="" selected></option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+
+</div>

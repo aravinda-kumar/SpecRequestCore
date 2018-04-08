@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SpecRequestCore.Models
+namespace SpecRequestCore.Models.RequestAdminViewModels
 {
-    public class Request
+    public class EditRequestViewModel
     {
-        [Key]
+        public IEnumerable<RequestStatus> Statuses { get; set; }
+        public IEnumerable<ApplicationUser> Reviewers { get; set; }
+
         public int Id { get; set; }
 
         [Required]
@@ -17,17 +20,10 @@ namespace SpecRequestCore.Models
         [Required]
         public string Description { get; set; }
 
-        [Required]
-        public DateTime RequestCreated { get; set; }
-
-        [Required]
-        public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
-
+        [DisplayName("Request Status")]
         public int? RequestStatusId { get; set; }
-        public RequestStatus RequestStatus { get; set; }
 
+        [DisplayName("Assigned To")]
         public string ReviewerId { get; set; }
-        public ApplicationUser Reviewer { get; set; }
     }
 }

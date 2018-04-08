@@ -21,13 +21,15 @@ namespace SpecRequestCore.Repositories
         public IQueryable<Request> Requests =>
             context.Requests
                 .Include(r => r.User)
+                .Include(r => r.Reviewer)
                 .Include(r => r.RequestStatus);
                 
 
         public IQueryable<Request> RequestsForUser(string userId) =>
             context.Requests
                 .Include(r => r.User)
-                .Include(r=>r.RequestStatus)
+                .Include(r => r.Reviewer)
+                .Include(r => r.RequestStatus)
                 .Where(r => r.UserId == userId);
 
         public void SaveRequest(Request request)
