@@ -12,7 +12,7 @@ using SpecRequestCore.Repositories;
 
 namespace SpecRequestCore.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     public class RequestController : Controller
     {
         private IRequestRepository repository;
