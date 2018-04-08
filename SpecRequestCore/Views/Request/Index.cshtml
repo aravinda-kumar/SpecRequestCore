@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>Submitted By</th>
                 <th>Created At</th>
+                <th>Status</th>
             </tr>
             @foreach (var request in Model)
             {
@@ -19,6 +20,7 @@
                     <td>@request.Name</td>
                     <td>@request.User.Email</td>
                     <td>@request.RequestCreated</td>
+                    <td>@request.RequestStatus.Status</td>
                 </tr>
             }
         </table>

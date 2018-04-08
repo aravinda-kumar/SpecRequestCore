@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace SpecRequestCore.Repositories
 {
@@ -19,11 +20,14 @@ namespace SpecRequestCore.Repositories
 
         public IQueryable<Request> Requests =>
             context.Requests
-                .Include(r => r.User);
+                .Include(r => r.User)
+                .Include(r => r.RequestStatus);
+                
 
         public IQueryable<Request> RequestsForUser(string userId) =>
             context.Requests
                 .Include(r => r.User)
+                .Include(r=>r.RequestStatus)
                 .Where(r => r.UserId == userId);
 
         public void SaveRequest(Request request)
