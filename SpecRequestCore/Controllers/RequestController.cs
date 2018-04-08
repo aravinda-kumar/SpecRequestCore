@@ -46,7 +46,7 @@ namespace SpecRequestCore.Controllers
                     Description = viewModel.Description,
                     RequestCreated = DateTime.Now,
                     UserId = userManager.GetUserId(HttpContext.User),
-                    RequestStatusId = 1 // Want to set the status to received, assume its ID is 1.
+                    RequestStatusId = 1 // Want to set the status to received, should be seeded with its id as 1.
                 };
 
                 repository.SaveRequest(model);
